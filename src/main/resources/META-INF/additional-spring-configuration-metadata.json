@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "handlers",
+      "type": "java.lang.String",
+      "description": "Description for handlers."
+    },
+    {
+      "name": "server.endpoints.cors.http",
+      "type": "java.lang.String",
+      "description": "Description for server.endpoints.cors.http."
+    },
+    {
+      "name": "server.endpoints.cors.http",
+      "type": "java.lang.String",
+      "description": "Description for server.endpoints.cors.http."
+    }
+  ] }

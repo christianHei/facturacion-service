@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: facturacion
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate.physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://ec2-18-233-32-61.compute-1.amazonaws.com:5432/d7mpit75q0si14
+    username: vqayosntlhicgq
+    password: daa4e78bcc71b0ddc62c0963f14b587b070401235bb77d7e80489d43c7bfbc6b
+    driver-class-name: org.postgresql.Driver
+
+# HTTP Server
+server:
+  port: 8080
+    # HTTP (Tomcat) port
+
+#logging:
+  #level: info
+    #Basic Security by Method
+    #security:
+    #user:
+  #name: user
+  #password: pass
+
+# google cloud instancia de postgres
+# jdbc:postgresql://35.238.252.71/facturacion?useSSL=false
+# postgres
+# admin
+
+# instancia heroku
+# jdbc:postgresql://ec2-18-233-32-61.compute-1.amazonaws.com:5432/d7mpit75q0si14
+# vqayosntlhicgq
+# daa4e78bcc71b0ddc62c0963f14b587b070401235bb77d7e80489d43c7bfbc6b
+
+# instancia local
+# jdbc:postgresql://localhost:5432/facturacion
+# postgres
+# admin
+
