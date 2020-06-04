@@ -49,6 +49,13 @@ public class UsuarioControlador {
         return usuarioServicio.obtenerPorNombreUsuarioClave(nombreUsuario, clave);
     }
 
+    @GetMapping(path = "/usuario/email/{email}", produces = "application/json")
+    @ResponseBody
+    @ApiOperation(value = "Encuentra un Usuario por email", notes = "Retorna un Usuario")
+    public Usuario obtenerPorEmail(@PathVariable("email") String email) {
+        return usuarioServicio.obtenerPorEmail(email.trim());
+    }
+
     @GetMapping(path = "/usuario/nombre/usuario/{nombreUsuario}", produces = "application/json")
     @ResponseBody
     @ApiOperation(value = "Encuentra un Usuario por nombre de usuario", notes = "Retorna un Usuario")

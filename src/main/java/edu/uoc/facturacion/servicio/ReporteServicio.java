@@ -6,6 +6,7 @@ import edu.uoc.facturacion.to.ImpresionTo;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import java.util.Map;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -30,11 +32,13 @@ public class ReporteServicio implements Serializable {
 
 	public ByteArrayDataSource pdf(Factura factura, String reporte) {
 		try {
+			List<ImpresionTo> listaImpresionTo = new ArrayList<>();
+			listaImpresionTo.add(new ImpresionTo(factura, factura.getListaFacturaDetalle()));
 			Map<String, Object> param = new HashMap<>();
 			param.put("FACTURA", factura);
 			InputStream urlJasper = new ClassPathResource("reporte/" + reporte).getInputStream();
 			// ejecutar el reporte
-			JasperPrint jasperPrint = JasperFillManager.fillReport(urlJasper, param);
+			JasperPrint jasperPrint = JasperFillManager.fillReport(urlJasper, param, new JRBeanCollectionDataSource(listaImpresionTo));
 			//return JasperExportManager.exportReportToPdf(jasperPrint);/
 
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();

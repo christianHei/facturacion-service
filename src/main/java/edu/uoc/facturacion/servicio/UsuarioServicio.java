@@ -92,6 +92,22 @@ public class UsuarioServicio {
     }
 
     /**
+     * Método que obtiene un Usuario por email.
+     * @param email email de usuario.
+     * @return Usuario
+     */
+    public Usuario obtenerPorEmail(String email) {
+        String consulta = "SELECT u FROM Usuario u WHERE u.email = :email";
+        TypedQuery<Usuario> query = em.createQuery(consulta, Usuario.class);
+        query.setParameter("email", email);
+        try {
+            return query.getSingleResult();
+        } catch (NoResultException ex) {
+            return  null;
+        }
+    }
+
+    /**
      * Método que obtiene un Usuario por nombre de usuario.
      * @param nombreUsuario nombre de usuario.
      * @return Usuario

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="comprobante" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -73,10 +73,10 @@
 			<initialValueExpression><![CDATA[0]]></initialValueExpression>
 		</variable>
 	</subDataset>
-	<parameter name="FACTURA" class="src.main.java.edu.uoc.facturacion.modelo.facturacion.Factura"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
+	<field name="impresionTo" class="edu.uoc.facturacion.to.ImpresionTo"/>
 	<title>
 		<band height="196" splitType="Stretch">
 			<staticText>
@@ -189,8 +189,8 @@
 			<componentElement>
 				<reportElement key="table 4" x="0" y="16" width="556" height="54" uuid="a7890875-fc4f-4b5b-a4e3-aeccc83f0846"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="lista" uuid="3872a8ae-c559-4c12-b210-7b375d08d3d1">
-						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource ($P{FACTURA}.getListaFacturaDetalle())]]></dataSourceExpression>
+					<datasetRun subDataset="lista" uuid="80bf9d37-9eeb-42fc-be09-646cb7ce93a1">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource ($F{impresionTo}.getListaFacturaDetalle())]]></dataSourceExpression>
 					</datasetRun>
 					<jr:columnGroup width="556" uuid="7fdbce2d-ee7f-437c-ba1b-a62bbda4495e">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [5]"/>

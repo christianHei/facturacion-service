@@ -3,27 +3,25 @@ package edu.uoc.facturacion.to;
 import edu.uoc.facturacion.modelo.facturacion.Factura;
 import edu.uoc.facturacion.modelo.facturacion.FacturaDetalle;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Christian Juiña
  */
-public class ImpresionTo implements Serializable {
+public class ImpresionTo {
 
-	private static final long serialVersionUID = -7462907646843134983L;
-
-	public ImpresionTo impresionTo = this;
-	public Factura factura = new Factura();
+	private ImpresionTo impresionTo = this;
+	private Factura factura = new Factura();
+	private List<FacturaDetalle> listaFacturaDetalle;
 
 	public ImpresionTo() {
 		super();
 	}
 
-	public ImpresionTo(Factura factura) {
+	public ImpresionTo(Factura factura, List<FacturaDetalle> listaFacturaDetalle) {
 		super();
 		this.factura = factura;
+		this.listaFacturaDetalle = listaFacturaDetalle;
 	}
 
 	public ImpresionTo getImpresionTo() {
@@ -40,5 +38,13 @@ public class ImpresionTo implements Serializable {
 
 	public void setFactura(Factura factura) {
 		this.factura = factura;
+	}
+
+	public List<FacturaDetalle> getListaFacturaDetalle() {
+		return listaFacturaDetalle;
+	}
+
+	public void setListaFacturaDetalle(List<FacturaDetalle> listaFacturaDetalle) {
+		this.listaFacturaDetalle = listaFacturaDetalle;
 	}
 }
